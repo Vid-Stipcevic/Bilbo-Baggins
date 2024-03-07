@@ -3,7 +3,7 @@ a<-14*229845
 b<-2+1
 a+b
 
-# Arrays
+# Arrays, o in altre parole fiori ed insetti <3
 flowers<-c(3, 6, 8, 10, 15, 18)
 flowers
 
