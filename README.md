@@ -1,3 +1,3 @@
 # Bilbo-Baggins
 
-This repo is thought for remote sensing lectures at UNIBO 📡🛰️
+This repo is meant for remote sensing lectures at UNIBO 📡🛰️
