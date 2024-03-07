@@ -1,9 +1,9 @@
-# Commandi per ricevere 3217833:
+# Commands to receive 3217833:
 a<-14*229845
 b<-2+1
 a+b
 
-# Arrays, o in altre parole fiori ed insetti <3
+# Arrays, or in other words flowers and insects <3
 flowers<-c(3, 6, 8, 10, 15, 18)
 flowers
 
@@ -12,4 +12,15 @@ insects
 
 # Plots (X, Y, Symbol type, Symbol size, Symbol color)
 plot(flowers, insects, pch=8, cex=4, col="darkgreen")
+
+# Install new packages
+install.packages("")
+
+# List of installed Packages
+ip = as.data.frame(installed.packages()[,c(1,3:4)])
+ip = ip[is.na(ip$Priority),1:2,drop=FALSE]
+ip
+
+# Load package:
+library()
 
