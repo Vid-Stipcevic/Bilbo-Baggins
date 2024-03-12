@@ -23,6 +23,7 @@ ip
 
 # Load package:
 library()
+
 #es. Installing a package from Github
 install_github("ducciorocchini/imageRy")
 library(imageRy)
