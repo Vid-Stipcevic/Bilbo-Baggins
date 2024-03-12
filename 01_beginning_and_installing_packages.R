@@ -24,7 +24,11 @@ ip
 # Load package:
 library()
 
-#es. Installing a package from Github
+#es.
+install.packages("devtools")
+library(devtools)
+
+# es. Installing a package from Github, devtools package required
 install_github("ducciorocchini/imageRy")
 library(imageRy)
 
