@@ -23,10 +23,10 @@ plot(stacksent)
 dev.off() # To remove the present plot
 
 # RGB plotting:
-#stacksent[[1]]=b2=blue
-#stacksent[[2]]=b3=green
-#stacksent[[3]]=b4=red
-#stacksent[[4]]=b8=nir
+# stacksent[[1]]=b2=blue
+# stacksent[[2]]=b3=green
+# stacksent[[3]]=b4=red
+# stacksent[[4]]=b8=nir
 
 im.plotRGB(stacksent,r=3,g=2,b=1) # Layered by order: blue, green, red, and near infrared
 im.plotRGB(stacksent,4,3,2) # To have a near infrared image
@@ -39,11 +39,7 @@ im.plotRGB(stacksent,4,3,2)
 im.plotRGB(stacksent,3,4,2)
 im.plotRGB(stacksent,3,2,4)
 
-
-
-
-
-
-
+# Correlation of information:
+pairs(stacksent)
 
 
