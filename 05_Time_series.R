@@ -1,4 +1,4 @@
-#   Another method of classification
+# Another method of classification
 
 library(imageRy)
 library(terra)
