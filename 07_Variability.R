@@ -13,10 +13,12 @@ nir<-sentinel[[1]]
 cl<-colorRampPalette(c("black","blue","green","yellow"))(100)
 plot(nir,col=cl)
 
-# calculate focal ("moving window"):
+# Calculate focal ("moving window"):
 
 sd3<-focal(nir, matrix(1/9, 3, 3), fun=sd)
 viridisc<-colorRampPalette(viridis(7))(256)
 plot(sd3,col=viridisc)
 
-
+sd7<-focal(nir, matrix(1/49, 7, 7), fun=sd) # Standard deviation 7x7
+stacksd<-c(sd3,sd7)
+plot(stacksd,col=viridisc)
