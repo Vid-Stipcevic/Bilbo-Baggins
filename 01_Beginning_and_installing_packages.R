@@ -16,9 +16,9 @@ plot(flowers, insects, pch=8, cex=4, col="darkgreen")
 install.packages("")
 
 # List of installed Packages
-ip = as.data.frame(installed.packages()[,c(1,3:4)])
-ip = ip[is.na(ip$Priority),1:2,drop=FALSE]
-ip
+packlist<-as.data.frame(installed.packages()[,c(1,3:4)])
+packlist<-packlist[is.na(packlist$Priority),1:2,drop=FALSE]
+packlist
 
 # Load package:
 library()
