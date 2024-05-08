@@ -50,10 +50,3 @@ plot(ndvi2006, col=clvir)
 # speeding up calculation
 ndvi2006a <- im.ndvi(m2006, 1, 2)
 plot(ndvi2006a, col=cl)
-
-# alternative DVI calculation:
-dvi1002 = m1992$matogrosso~2219_lrg_1 - m1992$matogrosso~2219_lrg_2
-
-
-
-
