@@ -19,8 +19,18 @@ This course has the following master programs:
 > **Note**
 > No previous knowledge of R is required
 
-> **Warning**
+> **Warning:**
 > pippo
+
+>**External link to course:**
+>[UNIBO](https://www.unibo.it/it/studiare/dottorati-master-specializzazioni-e-altra-formazione/insegnamenti/insegnamento/2022/385083)
+
+## Main Package used:
+
+```{r}
+library(imageRy)
+```
+
 
 
 
