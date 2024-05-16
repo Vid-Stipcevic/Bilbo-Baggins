@@ -1,0 +1,57 @@
+# R studio Markdown:
+---
+title: "Buppity"
+author: "Bippity Boppity"
+date: "2024-05-16"
+output: html_document
+---
+
+# My first Bippity Boppity markdown Buppity:
+This file has some serious Bippit Boppity Doo, perhaps even some Twittily Twottily Roo.
+
+We will be using the following package:
+```{r}
+library(imageRy)
+library(terra)
+library(viridis)
+```
+
+To visualize the list of data use:
+```{r, eval=T}
+im.list()
+```
+
+To import data:
+```{r, eval=T}
+hoppity<-im.import("matogrosso_l5_1992219_lrg.jpg")
+```
+
+Plotting data in RGB:
+```{r, eval=TRUE}
+im.plotRGB(hoppity, 1, 2, 3)
+```
+
+Bands:
+1 = NIR, 2 = Re
+par(mfrow=c(1,3))
+im.plotRGB(hoppitd, 3 = Green
+
+To lookity at different bandity together:
+```{r, eval=TRUE}y, 1, 2, 3)
+im.plotRGB(hoppity, 3, 2, 1)
+im.plotRGB(hoppity, 2, 1, 3)
+```
+
+# Calculating spectral indicies:
+```{r, eval=TRUE}
+dvi<-hoppity[[1]]-hoppity[[2]]
+plot(dvi, col=viridis(100))
+```
+
+# Calculating spatial variation:
+```{r, eval=TRUE}
+sd5<-focal(hoppity[[1]], matrix(1/25,5,5), fun=sd)
+plot(sd5, col=magma(100))
+```
+
+and so on...
