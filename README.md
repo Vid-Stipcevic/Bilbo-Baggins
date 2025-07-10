@@ -25,10 +25,13 @@ This course has the following master programs:
 >**External link to course:**
 >[UNIBO](https://www.unibo.it/it/studiare/dottorati-master-specializzazioni-e-altra-formazione/insegnamenti/insegnamento/2022/385083)
 
-## Main Package used:
+## Main Packages used:
 
 ```{r}
 library(imageRy)
+library(terra)
+library(viridis)
+library(ggplot2)
 ```
 
 
