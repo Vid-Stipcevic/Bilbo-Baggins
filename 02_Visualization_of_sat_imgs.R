@@ -16,7 +16,7 @@ b8<-im.import("sentinel.dolomites.b8.tif")
 
 # Plot with 4 slots:
 par(mfrow=c(2,2))
-# Or:
+# to combine all bands into a single stack:
 stacksent<-c(b2,b3,b4,b8)
 plot(stacksent)
 
