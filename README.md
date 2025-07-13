@@ -20,7 +20,7 @@ This course has the following master programs:
 > No previous knowledge of R is required
 
 > **Warning:**
-> pippo
+> no warnings :)
 
 >**External link to course:**
 >[UNIBO](https://www.unibo.it/it/studiare/dottorati-master-specializzazioni-e-altra-formazione/insegnamenti/insegnamento/2022/385083)
