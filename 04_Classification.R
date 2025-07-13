@@ -48,7 +48,7 @@ y1992<-c(83,17)
 y2006<-c(45,55)
 
 tabout<-data.frame(class,y1992,y2006)
-View(tabout)
+View(tabout) # View is case sensitive!
 
 ggplot(tabout, aes(x=class, y=y1992, color=class)) + geom_bar(stat="identity", fill="white")
 ggplot(tabout, aes(x=class, y=y2006, color=class)) + geom_bar(stat="identity", fill="white")
