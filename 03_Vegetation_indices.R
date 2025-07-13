@@ -27,7 +27,7 @@ im.plotRGB(m2006, r=2, g=3, b=1)
 dvi1992 = m1992[[1]] - m1992[[2]]
 plot(dvi1992)
 
-cl <- colorRampPalette(c("darkblue", "yellow", "red", "black")) (100) # specifying a color scheme
+cl <- colorRampPalette(c("darkblue", "yellow", "red", "black")) (100) # specifying a color scheme, 100 indicates the color "nuances"
 plot(dvi1992, col=cl)
 
 # exercise: calculate dvi of 2006
