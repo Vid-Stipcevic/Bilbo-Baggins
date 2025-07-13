@@ -6,8 +6,6 @@ date: "2024-05-16"
 output: html_document
 ---
 
-# My first Bippity Boppity markdown Buppity:
-This file has some serious Bippit Boppity Doo, perhaps even some Twittily Twottily Roo.
 
 We will be using the following package:
 ```{r}
