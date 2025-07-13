@@ -34,7 +34,7 @@ plot(dvi1992, col=cl)
 dvi2006 = m2006[[1]] - m2006[[2]]
 plot(dvi2006, col=cl)
 
-# NDVI (Normalized DVI, always from -1 to 1)
+# NDVI (Normalized DVI, always from -1 to 1, bands can be of different resolutions)
 ndvi1992 = (m1992[[1]] - m1992[[2]]) / (m1992[[1]] + m1992[[2]])
 ndvi1992 = dvi1992 / (m1992[[1]] + m1992[[2]])
 plot(ndvi1992, col=cl)
