@@ -1,0 +1,232 @@
+\documentclass{beamer} % Usato per definire che tipo di documento è, ad esempio beamer per presentazioni, article per articoli, ecc.. 
+\usepackage{graphicx} % Package necessario per utilizzare immagini
+\usepackage{listings} % Pacchetto che può essere utilizzato per caricare degli algoritmi direttamente dagli script.
+\usetheme{Szeged} % Per selezionare il stile della presentazione
+\usecolortheme{beaver} % colore della presentazione
+\usepackage{multicol}
+\usepackage{url}
+
+\title{Impatto dell'incendio di Grebaštica}
+\author{Vid Stipčević}
+\date{15 luglio 2025}
+
+\begin{document}
+
+\maketitle
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Outline}    
+    \tableofcontents[currentsection]
+\end{frame}
+}
+
+\section{Area naturale di Grebaštica}
+
+        \begin{frame}{Area naturale di Grebaštica}
+                \begin{itemize}
+                    \item {Regione di Sebenico e Tenin}
+                    \item {Area naturale non ufficialmente protetta}
+                \end{itemize}
+                \begin{center}
+                    \includegraphics[width=1\linewidth]{Screenshot 2025-07-12 103346.png}
+                 \end{center}
+        \end{frame}
+
+        \begin{frame}{L'incendio di Grebaštica}
+        \begin{multicols}{2}
+                \begin{itemize}
+                    \item {Dal 13. al 18. luglio 2023} 
+                    \item {Area di incendio: 6,86 km2}
+                \end{itemize}
+            \columnbreak
+            \begin{center}
+                \includegraphics[width=0.4\textwidth]{2023-07-13-pozar.jpg}
+                \includegraphics[width=0.4\textwidth]{image_2025-07-12_180818941.png}
+            \end{center}
+            \end{multicols}
+        \end{frame}
+
+\section{Materiali e metodi}
+
+        \begin{frame}{Immagini satellitari}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.3\linewidth]{image_2025-07-12_125336474.png}
+        \end{figure}
+            \begin{center}
+            Le immagini satellitari sono state scaricate dal sito \url{https://browser.dataspace.copernicus.eu};
+                \begin{itemize}
+                    \item La grandezza dell'area d'interesse è 21,27 km2
+                    \item Date analizzate: 11.07.2023. (prima dell'incendio), 16.07.2023. (appena dopo l'incendio), 15.06.2024., e 16.04.2025.
+                    \item Bande scaricate: 02, 03, 04, 08, e 12 in formato .tiff 16 bit
+                \end{itemize}
+            \end{center}
+        \end{frame}
+
+        \begin{frame}{Pacchetti R usati}
+            \begin{itemize}
+                \centering
+                \item library(terra)
+                \item library(imageRy)
+                \item library(viridis)
+                \item library(ggplot2)
+            \end{itemize}
+        \end{frame}
+        
+        \begin{frame}{Funzioni utilizzate}
+            \begin{multicols}{2}
+                    \begin{itemize}
+                        \item setwd() 
+                        \item rast() 
+                        \item c()
+                        \item flip()
+                        \item par() 
+                        \item im.plotRGB()
+                        \item dev.off()
+                \columnbreak
+                        \item plot()
+                        \item im.classify()
+                        \item ncell()
+                        \item freq()
+                        \item data.frame()
+                        \item factor()
+                        \item ggplot()
+                    \end{itemize}
+                \end{multicols}
+        \end{frame}
+
+        \begin{frame}{Importazione dei .tiff}
+            \lstinputlisting[language=R, firstline=18, lastline=22]{Esame_telerilevamento_15_07.R}
+            Uniamo tutte le bande in un'unico stack:\\
+            {\scriptsize temp01\(<\)-c(temp01B04, temp01B03, temp01B02, temp01B08, temp01B12)}\\
+            {\scriptsize im.plotRGB (temp01, 1, 2, 3)}
+        \end{frame}
+
+        \begin{frame}{Prima e dopo l'incendio (true color, bande: RGB)}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.4\linewidth]{esam/temp01.png}
+                \includegraphics[width=0.4\linewidth]{esam/temp02.png} \\
+                \includegraphics[width=0.4\linewidth]{esam/temp03.png}
+                \includegraphics[width=0.4\linewidth]{esam/temp04.png} \\
+            \end{figure}
+        \end{frame}
+
+        \begin{frame}{Prima e dopo l'incendio (false color, bande: NIR, BLUE, GREEN)}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.4\linewidth]{esam/temp01FC.png}
+                \includegraphics[width=0.4\linewidth]{esam/temp02FC.png} \\
+                \includegraphics[width=0.4\linewidth]{esam/temp03FC.png}
+                \includegraphics[width=0.4\linewidth]{esam/temp04FC.png} \\
+            \end{figure}
+        \end{frame}
+        
+\section{Indici}
+
+        \begin{frame}{NDVI}
+            \begin{equation}
+                NDVI = \frac{(NIR - RED)}{(NIR + RED)}
+            \end{equation}
+            es.
+            \lstinputlisting[language=R, firstline=77, lastline=79]{Esame_telerilevamento_15_07.R}
+        \end{frame}
+
+        \begin{frame}{NDVI}
+            \begin{figure}
+                \centering
+                \includegraphics[width=.8\linewidth]{esam/NDVI.png}
+            \end{figure}
+        \end{frame}
+           
+        \begin{frame}{NBR}
+            \begin{equation}
+                NBR = \frac{(NIR - SWIR)}{(NIR + SWIR)}
+            \end{equation}
+            es.
+            \lstinputlisting[language=R, firstline=119, lastline=121]{Esame_telerilevamento_15_07.R}
+        \end{frame}
+
+        \begin{frame}{NBR}
+            \begin{figure}
+                \centering
+                \includegraphics[width=.8\linewidth]{esam/NBR.png}
+            \end{figure} 
+        \end{frame}
+
+\section{Classificazione}
+
+        \begin{frame}{Classificazione}
+            \lstinputlisting[language=R, firstline=184, lastline=187]{EsameInc.R}
+        \end{frame}
+
+        \begin{frame}{Classificazione}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.9\linewidth]{esam/class.png}
+            \end{figure}
+        \end{frame}
+
+        \begin{frame}{Percentuali}
+            \lstinputlisting[language=R, firstline=193, lastline=193]{Esame_telerilevamento_15_07.R}
+            \lstinputlisting[language=R, firstline=200, lastline=200]{Esame_telerilevamento_15_07.R}
+            \lstinputlisting[language=R, firstline=207, lastline=207]{Esame_telerilevamento_15_07.R}
+            \lstinputlisting[language=R, firstline=212, lastline=212]{Esame_telerilevamento_15_07.R}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.5\linewidth]{Screenshot 2025-07-12 181427.png}
+            \end{figure}
+        \end{frame}
+
+        \begin{frame}{Costruzione di grafici a barre con ggplot2}
+            \lstinputlisting[language=R, firstline=232, lastline=241, basicstyle=\tiny]{Esame_telerilevamento_15_07.R}
+        \end{frame}
+
+        \begin{frame}{Grafici}
+            \begin{multicols}{2}
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=1\linewidth]{esam/plotveg.png}
+                \end{figure}
+                \columnbreak
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=1\linewidth]{esam/plotsoil.png}
+                \end{figure}
+            \end{multicols}
+        \end{frame}
+
+\section{Conclusioni}
+
+    \begin{frame}{Conclusioni}
+        L'area naturale non si è ancora completamente ripresa, il territorio ad est sta migliorando più rapidamente, però la siccità segnalata di recente sulla costa dalmata indubbiamente rallenterà questo processo.
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.4\linewidth]{esam/temp03FC.png}
+            \includegraphics[width=0.4\linewidth]{esam/temp04FC.png}
+        \end{figure}
+    \end{frame}
+
+    \begin{frame}{Sitografia}
+        \begin{itemize}
+            \item \url{https://browser.dataspace.copernicus.eu}
+            \item \url{https://hvz.gov.hr/vijesti/pozar-otvorenog-prostora-kod-grebastice/3884}
+            \item \url{https://earthobservatory.nasa.gov/features/FalseColor/page6.php}
+            \item \url{https://custom-scripts.sentinel-hub.com/sentinel-2/swir-rgb/}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Ringraziamenti}
+        \begin{center}
+            {\huge Grazie per l'attenzione}\\
+                \bigskip
+                \centering
+                \includegraphics[width=0.6\linewidth]{esam/SWIR.png}\\
+                \bigskip
+                \url{https://github.com/Vid-Stipcevic}
+        \end{center}
+    \end{frame}
+
+\end{document}
